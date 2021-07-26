@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-exports.signup = (req, res, next) => {
+exports.register = (req, res, next) => {
    bcrypt.hash(req.body.password, 10) // Hash du mot de passe passé dans le body avec 10 salages
       .then(hash => { // Récupération du hash de mot de passe
         const user = new User({
@@ -40,5 +40,3 @@ exports.login = (req, res, next) => {
       })
       .catch(error => res.status(500).json({ error }));
   };
-
-module.exports = userControllers;

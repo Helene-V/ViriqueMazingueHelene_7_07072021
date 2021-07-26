@@ -1,4 +1,5 @@
 require('dotenv').config();
+const cors = require('cors');
 
 const express = require('express'); // Ajout de l'application Express
 const app = express();
@@ -16,9 +17,10 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
+app.use(cors());
 
 
-//app.use('/api/auth', userRoutes); // Router importé depuis routes>user.js
+app.use('/auth', require('./routes/user')); // Router importé depuis routes>user.js
 app.use('/articles', require("./routes/articles")); // Router importé depuis routes>article.js
 
 module.exports = app;
