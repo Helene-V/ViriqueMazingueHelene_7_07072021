@@ -20,3 +20,15 @@ pool.execute(sql, function(err, result) {
   //ou encore console.log(res.title)
 });
 */
+
+/*exports.connect = (done) => {
+  connection.connect((err) =>{
+      if(err){
+          console.log('db connection error');
+      }
+      else{
+          done()
+          console.log('db connection');
+      }
+ })
+}*/

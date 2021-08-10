@@ -1,9 +1,11 @@
 const db = require('../config/db');
 
 class Article {
-    constructor(title, body) {
+    constructor(title, body, likeOrDislike, image) {
         this.title = title;
         this.body = body;
+        this.likeOrDislike = likeOrDislike;
+        this.image = image;
     }
 
     save() {
@@ -24,6 +26,8 @@ class Article {
             '${this.title}',
             '${this.body}',
             '${createdAtDate}'
+            '${this.likeOrDislike}'
+            '${this.image}'
         )
         `;
 

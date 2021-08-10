@@ -69,3 +69,39 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 # Viriquehelene_7_07072021
+
+## Structure de Groupomania
+App (structure de base)
+- user
+
+LoginForm
+- mail , mot de passe (2FA à venir)
+- < onConnect(user)
+
+RegisterForm
+- nom, prénom, photo, email, date de naissance, mot de passe
+- < onConnect(user)
+
+Pages
+- Connexion/Register account
+- Home page, articles (comments, likes/dislikes, search, ... )
+
+Articles
+- > articles
+- < onCreate(article)
+- < onUpdate(article, newArticle)
+- < onDelete(article)
+
+ArticleDetail
+- > id
+- > article
+
+ArticleEditForm
+- > article (messages,photos,vidéos)
+- > comment
+- like/dislike
+- < onSubmit(article)
+
+AccountEdit
+- modifier photo de profil
+- supprimer le compte

@@ -1,12 +1,10 @@
-require('dotenv').config();
-const cors = require('cors');
-
 const express = require('express'); // Ajout de l'application Express
+const helmet = require('helmet'); // Package Helmet pour la sécurité des en-têtes
+require('dotenv').config();  // Mise en place de dotenv pour cacher les identifiants d'accès à la db
+const cors = require('cors');
 const app = express();
-//const path = require('path');
+const path = require('path');
 
-//const article = require('./routes/article');
-//const userRoutes = require('./routes/user');
 
 // CORS - Permet à l'application d'accéder à l'API
 app.use((req, res, next) => {
@@ -16,10 +14,11 @@ app.use((req, res, next) => {
   next();
 });
 
+
 app.use(express.json());
+app.use(helmet());
 app.use(cors());
-
-
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/auth', require('./routes/user')); // Router importé depuis routes>user.js
 app.use('/articles', require("./routes/articles")); // Router importé depuis routes>article.js
 

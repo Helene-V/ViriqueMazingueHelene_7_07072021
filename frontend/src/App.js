@@ -1,9 +1,15 @@
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div>
-      <h1>Groupomania</h1>
-    </div>
+    <>
+      <Navbar />
+      <Router>
+        <Route path="/" exact render={() => <Home />} />
+      </Router>
+    </>
   );
 }
 

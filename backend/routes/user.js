@@ -5,7 +5,7 @@ const userControllers = require('../controllers/userControllers');
 
 
 router.post('/register', userControllers.register, (req, res)=> {
-    const username = req.body.username; // récupération du front
+    const username = req.body.username; // récupération des données du front
     const password = req.body.password;
 
     db.query(
@@ -18,7 +18,7 @@ router.post('/register', userControllers.register, (req, res)=> {
 });
 
 router.post('/login', userControllers.login, (req, res)=> {
-    const username = req.body.username; // récupération du front
+    const username = req.body.username;
     const password = req.body.password;
 
     db.query(
@@ -39,32 +39,3 @@ router.post('/login', userControllers.login, (req, res)=> {
 });
 
 module.exports = router;
-
-
-/*
-router.post('/register', userControllers.register);
-router.post('/login', userControllers.login);
-*/
-
-/*
-router.post('/register', userControllers.register, async (req, res) => {
-    try {
-        await db('users').insert({email: email, hash: hash});
-        res.status(200).json('All good !');
-        } catch(e) {
-            console.log(e);
-            res.status(500).send('Something broke !');
-        }
-})
-
-
-router.post('/login', userControllers.login, async (req, res) => {
-    try {
-        const user = await db('users').first('*').where({email: email});
-        res.status(200).json('All good !');
-        } catch(e) {
-            console.log(e);
-            res.status(500).send('Something broke !');
-        }
-})
-*/
