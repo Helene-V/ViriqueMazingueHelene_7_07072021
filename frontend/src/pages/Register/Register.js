@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Axios from 'axios';
+import axios from 'axios';
 
 import './Register.css';
 
@@ -9,7 +9,7 @@ function Register () {
     const [password, setPassword] = useState('');
 
     const register = () => {
-        Axios.post('http://localhost:3000/user/register', { //Body de l'objet pour l'envoi au backend
+        axios.post('/user/register', { //Body de l'objet pour l'envoi au backend
             email: email,
             password: password,
         })
