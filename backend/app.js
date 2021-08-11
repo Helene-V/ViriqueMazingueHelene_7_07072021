@@ -15,9 +15,11 @@ app.use((req, res, next) => {
 });
 
 
+app.use(cors());
 app.use(express.json());
 app.use(helmet());
-app.use(cors());
+
+
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/auth', require('./routes/user')); // Router importé depuis routes>user.js
 app.use('/articles', require("./routes/articles")); // Router importé depuis routes>article.js
