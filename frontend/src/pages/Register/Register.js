@@ -9,7 +9,7 @@ function Register () {
     const [password, setPassword] = useState('');
 
     const register = () => {
-        axios.post('/user/register', { //Body de l'objet pour l'envoi au backend
+        axios.post("http://localhost:3000/user/register", {
             email: email,
             password: password,
         })

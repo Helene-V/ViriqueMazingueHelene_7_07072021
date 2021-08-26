@@ -1,3 +1,32 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Open+Sans&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+main {
+  padding: 6rem 1rem 1rem;
+}
+
+
+ /* Idée couleurs palette : 
+ Forest blue : #0a3d62;
+ Good samaritan : #3c6382;
+ Dupain: #60a3bc;
+ Spray: #82ccdd;
+ Reef encounter: #079992;
+ Waterfall: #38ada9;
+ Dark sapphire: #0c2461;
+ Yue guang lan blue: #1e3799;
+ Jalapeno red: #b71540;
+ Tomato red: #eb2f06;
+ Carrot orange: #e58e26;
+ Iceland poppy: #fa983a;
+ */
