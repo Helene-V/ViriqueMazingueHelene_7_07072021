@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-//const db = require('../config/db');
+const db = require('../config/db');
 require('dotenv').config();
 
 const User = require('../models/User');
@@ -44,3 +44,4 @@ exports.login = (req, res, next) => {
       })
       .catch(error => res.status(500).json({ error }));
   };
+  

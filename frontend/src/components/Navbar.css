@@ -7,6 +7,8 @@
     align-content: center;
     justify-content: space-between;
     padding: 0.8em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     background-color: #0a3d62;
     box-shadow: 5px 5px 15px #0c2461 ;
 }
@@ -118,18 +120,3 @@
         transform: rotate(-45deg);
     }
 }
-
-/*
-.Navbar {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    position: fixed;
-    background-color: #0a3d62;
-    box-shadow: 5px 5px 15px #0c2461 ;
-}
-*/

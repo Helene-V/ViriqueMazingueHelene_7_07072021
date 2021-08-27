@@ -38,3 +38,7 @@
     cursor: pointer;
     background-color: #82ccdd;
 }
+
+.Error {
+    color: red;
+}

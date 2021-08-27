@@ -3,6 +3,7 @@ const helmet = require('helmet'); // Package Helmet pour la sécurité des en-t�
 require('dotenv').config();  // Mise en place de dotenv pour cacher les identifiants d'accès à la db
 const cors = require('cors');
 const app = express();
+const db = require('../backend/config/db');
 const path = require('path');
 
 
@@ -25,7 +26,7 @@ app.use(helmet());
 
 
 //app.use('/images', express.static(path.join(__dirname, 'images')));
-app.use('/user', userRoutes);
+app.use('/api/auth', userRoutes);
 app.use('/articles', articleRoutes);
 //app.use('/auth', require('./routes/user')); // Router importé depuis routes>user.js
 //app.use('/articles', require("./routes/articles")); // Router importé depuis routes>article.js
