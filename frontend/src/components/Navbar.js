@@ -15,7 +15,7 @@ function Navbar() {
     return(
         <nav className={`Navbar ${showMenu ? "Show-nav" : "Hide-nav"}`}>
             <div className="Logo">
-                <img src={logo} alt="Logo" width="20%" height="auto" />
+                <img src={logo} alt="Logo" width="200px" height="auto" />
             </div>
             <ul className="Navbar__links">
                 <li className="Navbar__item">
