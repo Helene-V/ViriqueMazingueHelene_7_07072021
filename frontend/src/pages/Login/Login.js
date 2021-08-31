@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import './Login.css'
 
@@ -23,7 +23,7 @@ function Login () {
             if (response.data.loggedIn) {
                 localStorage.setItem("loggedIn", true)
                 localStorage.setItem("email", response.data.email)
-                history.push('/');
+                history.push('/'); // si connecté, redirection vers la page
             } else {
                 setErrorMessage(response.data.message);
             }

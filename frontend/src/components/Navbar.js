@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import logo from '../assets/logo.png'
 
+import logo from '../assets/logo-black.png';
 import './Navbar.css';
 
 function Navbar() {
@@ -31,7 +31,7 @@ function Navbar() {
                     <a href="/">Accueil</a>      
                 </li>
                 <li className="Navbar__item">
-                    <a href="/news">Actualités</a>
+                    <a href="/article">Actualités</a>
                 </li>
                 <li className="Navbar__item">
                     <a href="/contact">Contact</a>
@@ -54,14 +54,14 @@ function Navbar() {
 
 export default Navbar
 
-/*  TEST GESTION DES ONGLETS DU MENU SI CONNECTE AU COMPTE OU NON
+/*  TEST GESTION DES ONGLETS DU MENU SI CONNECTE AU COMPTE TRUE or FALSE
             <ul className="Navbar__links">
                 <li className="Navbar__item">
                     <a href="/">Accueil</a>
                 </li>
                 {loggedIn ? (
                     <>
-                        <a href="/News">Actualités</a>
+                        <a href="/article">Actualités</a>
                     </>
                 ) : (
                     <>                

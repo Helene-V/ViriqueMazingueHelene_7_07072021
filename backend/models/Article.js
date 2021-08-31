@@ -1,6 +1,19 @@
 const db = require('../config/db');
 
 class Article {
+    constructor(title, description, image) {
+        this.title = title;
+        this.body = body;
+        this.image = image;
+    }
+
+    save()
+}
+
+module.exports = Article;
+
+/*
+class Article {
     constructor(title, body, likeOrDislike, image) {
         this.title = title;
         this.body = body;
@@ -44,5 +57,4 @@ class Article {
         return db.execute(sql);
     }
 }
-
-module.exports = Article;
+*/

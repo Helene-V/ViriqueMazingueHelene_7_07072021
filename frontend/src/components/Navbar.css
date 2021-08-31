@@ -9,8 +9,8 @@
     padding: 0.8em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    background-color: #0a3d62;
-    box-shadow: 5px 5px 15px #0c2461 ;
+    background-color: #fff;
+    box-shadow: 5px 5px 15px black ;
 }
 
 .Logo {
@@ -20,12 +20,17 @@
 .Navbar a {
    font-size: 20px;
    margin: 20px;
-   color: white;
+   color: black;
    text-decoration: none;
 }
 
+
 .Navbar a:hover {
     cursor: pointer;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+    transition-duration: 0.2s;
+  
 }
 
 .Navbar__links {
@@ -53,7 +58,7 @@
       margin-bottom: 0;
       height: 100%;
       font-size: 5em;
-      background-color: #0a3d62;
+      background-color: white;
       visibility: hidden;
     }
 
@@ -88,7 +93,7 @@
         height: 3px;
         position: relative;
         border-radius: 3px;
-        background-color: #fff;
+        background-color: black;
         transition: all .5s ease-in-out;
     }
 
@@ -118,5 +123,9 @@
 
     .Show-nav .Burger-bar::after {
         transform: rotate(-45deg);
+    }
+
+    .Home {
+        visibility: hidden;
     }
 }

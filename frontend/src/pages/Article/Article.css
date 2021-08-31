@@ -1,0 +1,59 @@
+.Article {
+    width: auto;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Article h1 {
+    text-align: center;
+}
+
+.ArticleForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.Title {
+    width: 35em;
+    height: 2em;
+    border-radius: 10px 10px 0 0;
+    border-style: none;
+    background-color: #82ccdd;
+    margin: 0;
+    padding-left: 0.5em;
+    font-size: 1.2rem;
+}
+
+.Description {
+    width: 35em;
+    height: 5em;
+    border-radius: 0 0 10px 10px;
+    border-style: none;
+    margin: 0;
+    padding-left: 0.5em;
+    font-size: 1.2rem;
+}
+
+.Share {
+    height: 3em;
+    width: 8em;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    margin: 0.5em;
+    background-color: #0a3d62;
+    color: #fff;
+}
+
+.ArticleForm button:hover {
+    cursor: pointer;
+    background-color: #82ccdd;
+}
+
+.Post {
+    border: 1px solid black;
+    width: 50%;
+    height: auto;
+}
