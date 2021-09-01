@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom'
-
+import { useHistory } from 'react-router-dom';
+import ThumbUpAltRounded from '@material-ui/icons/ThumbUpAltRounded';
+//import { AccessAlarm, ThreeDRotation } from '@material-ui/icons';
 import './Article.css';
 
 function Article() {
@@ -30,8 +31,33 @@ function Article() {
             .then(() => {
                 history.push("/article")
             })
+        });
+    };
+
+    
+    const [articles, setArticles] = useState([]);
+/* RECUPERATION DES POSTS pour affichage
+    useEffect(() => {
+        axios.get("http://localhost:3000/article")
+        .then((response) => {
+            setArticles(response.data);
+            response.data.map((val) => {
+                setLikes([...likes, val.likes]);
             });
-        };
+        });
+    }, []);*/
+
+    const likeThePost = (id) => {
+        axios.post("http://localhost:3000/article/like", {
+            userLiking: localStorage.getItem("email"),
+            postId: id,
+        })
+        .then((response) => {
+            console.log('like ok');
+        });
+    };
+
+    const [likes, setLikes] = useState([]);
 
     return (
         <div className="Article">
@@ -56,18 +82,48 @@ function Article() {
                 <input
                     type="file"
                     onChange={(event) => {
-                        setImage(event.target.files);
+                        setImage(event.target.files)
                     }}
                 />
             </div>
             <div>
-                    <button className="Share" onClick={nouvelArticle}>Partager</button>
-                </div>
-            <h2>Fil d'actualité</h2>
-            <div className="Post">
+                <button className="Share" onClick={nouvelArticle}>Partager</button>
             </div>
+            <section>
+                <h3>Fil d'actualité</h3>                
+                { articles.map((val, key) => {
+                    return (
+                        <div className="Post">
+                            <div className="Post-title">{ val.title }</div>
+                            <div className="Post-image">{ val.image }</div>
+                            <div className="Post-content">{ val.description }</div>
+                        </div>
+                    );                    
+                })} 
+                <div className="Opinion">
+                    <ThumbUpAltRounded
+                        id="Like-btn"
+                        //onClick={() => {
+                        //likeThePost(val.id);
+                        //const counterLikes = likes
+                        //counterLikes[key] = counterLikes[key] + 1
+                        //setLikes(counterLikes);
+                        //}}
+                        //{val.likes}
+                    />
+                    
+                </div>
+            </section>
         </div>
-    )
+    );
 }
 
 export default Article
+
+//Info tailles, couleurs https://material-ui.com/fr/components/icons/
+/*
+<ThumbUpAltRounded id="Like-btn"
+style={{ fontSize: 40 }}
+color="primary"
+/>
+*/

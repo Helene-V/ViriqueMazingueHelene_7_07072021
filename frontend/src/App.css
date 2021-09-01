@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Sedgwick+Ave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Anton&display=swap');
 
 * {
   box-sizing: border-box;
@@ -13,19 +13,3 @@ body {
 main {
   padding: 6rem 1rem 1rem;
 }
-
-
- /* Idée couleurs palette : 
- Forest blue : #0a3d62;
- Good samaritan : #3c6382;
- Dupain: #60a3bc;
- Spray: #82ccdd;
- Reef encounter: #079992;
- Waterfall: #38ada9;
- Dark sapphire: #0c2461;
- Yue guang lan blue: #1e3799;
- Jalapeno red: #b71540;
- Tomato red: #eb2f06;
- Carrot orange: #e58e26;
- Iceland poppy: #fa983a;
- */

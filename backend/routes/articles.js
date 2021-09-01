@@ -22,6 +22,29 @@ router.post("/", auth, multer, articleControllers.createNewArticle, (req,res) =>
     );
 });
     
+router.get("/"),(req,res) => {
+    db.query("SELECT * FROM Articles", (err,results) => {
+        if (err) {
+            console.log(err)
+        }
+        res.send(results)
+    })
+}
+
+router.post('/like', (req,res) => {
+
+    const userLiking = req.body.userLiking
+    const postId = req.body.postId
+
+    db.query("INSERT INTO Likes (userLiking, postId) VALUES (?,?)", [userLiking, postId], (err, results) => {
+        if (err) {
+            console.log(err);
+        }
+        db.query("UPDATE Articles SET likes = likes + 1 WHERE postId = ?", postId, (err2, result2) => {
+            res.send(results);
+        })
+    });
+})
 
 //router.get("/:id", auth, articleControllers.getArticleById);
 //router.put("/:id", auth, multer, articleControllers.modifyArticle);

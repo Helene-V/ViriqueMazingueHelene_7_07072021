@@ -16,9 +16,9 @@ function Home () {
             <h1 className="title">Work hard anywhere...</h1>
             </div>
             <div className="Home">
-                <h2>Bienvenue chez Groupomania</h2>
-                <p>Première connexion ?</p>
-                <p>Déjà inscrit ?</p>                 
+                <h2>WELCOME <span>to Groupomania</span></h2>
+                <a href="/login" className="Home-link">Première connexion ?</a>
+                <a href="/register" className="Home-link">Déjà inscrit ?</a>                 
             </div>
         </main>
     )

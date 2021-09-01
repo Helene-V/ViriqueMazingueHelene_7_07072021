@@ -34,9 +34,6 @@ function Navbar() {
                     <a href="/article">Actualités</a>
                 </li>
                 <li className="Navbar__item">
-                    <a href="/contact">Contact</a>
-                </li>
-                <li className="Navbar__item">
                     <a href="/login">Connexion</a>
                 </li>
                 <li className="Navbar__item">

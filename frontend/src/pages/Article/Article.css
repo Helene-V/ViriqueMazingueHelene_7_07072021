@@ -57,3 +57,13 @@
     width: 50%;
     height: auto;
 }
+
+#Like-btn {
+    cursor: pointer;
+    font-size: 40px;
+    color: gray;
+}
+
+#Like-btn:focus {
+    color: blue;
+}

@@ -6,39 +6,55 @@ main {
     background-position: inherit;
     background-size: auto;
     background-repeat: no-repeat;
-    height: 150vh;
+    height: 830px;
 }
 
 h2 {
-    font-family: 'Sedgwick Ave', cursive;
-    font-size: 2rem;
+    font-family: 'Anton', sans-serif;
+    font-size: 4rem;
     color: #fff;
+    line-height: 1;
+    text-align: center;
+    padding: 0.1em;
+    margin: 0.1em;
 }
 
+span {
+    font-size: 3rem;
+}
 
 .Home {
     display: flex;
     align-items: inherit;
-    text-align: center;
     background-color: black;
     opacity: 0.75;
-    width: 30em;
-    height: 30em;
+    width: 35em;
+    height: 20em;
     border-radius: 20px 20px;
-    padding: 1em;
+    padding: 2em;
 }
 
 h1 {
     display: flex;
     justify-content: center;
     color: black;
-    font-size: 5rem;
+    font-size: 5.5rem;
 }
 
-p {
-    display: flex;
-    justify-content: center;
+.Home-link {
+    text-decoration: none;
     color: #fff;
+    padding:0.5em;
+    margin: 0 0.2em 0 0.2em;
+    text-align: center;
+}
+
+.Home-link:hover {
+    border-style: dotted;
+    border-color: #fff;
+    border-radius: 10px;
+    transform: scale(1.1);
+    font-weight: 700;
 }
 
 .title {
@@ -50,14 +66,3 @@ p {
        background-image: url(../../assets/background-home.jpg);
     }
 }
-
-  /*
-  .Home {
-    text-align: center;
-    background-color: black;
-    opacity: 0.75;
-    width: 40em;
-    height: 30em;
-    border-radius: 20px;
-}
-*/
