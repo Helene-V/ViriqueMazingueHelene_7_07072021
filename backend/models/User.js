@@ -1,4 +1,4 @@
-const db = require('../config/db');
+/*const db = require('../config/db');
 
 class userId {
     constructor(email, password) {
@@ -33,4 +33,4 @@ class userId {
     }
 }
 
-module.exports = userId;
+module.exports = userId;*/

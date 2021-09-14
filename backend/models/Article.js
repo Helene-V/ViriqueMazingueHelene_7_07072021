@@ -1,4 +1,4 @@
-const db = require('../config/db');
+/*const db = require('../config/db');
 
 class Article {
     constructor(title, description, image) {
@@ -10,7 +10,7 @@ class Article {
     save()
 }
 
-module.exports = Article;
+module.exports = Article;*/
 
 /*
 class Article {

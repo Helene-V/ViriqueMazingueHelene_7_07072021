@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+/*const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const db = require('../config/db');
 require('dotenv').config();
@@ -44,4 +44,4 @@ exports.login = (req, res, next) => {
       })
       .catch(error => res.status(500).json({ error }));
   };
-  
+*/

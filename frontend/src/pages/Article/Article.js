@@ -61,7 +61,8 @@ function Article() {
 
     return (
         <div className="Article">
-            <h1>Que souhaitez-vous partager aujourd'hui?</h1>
+            <h1 className="ClassicTitle">Que souhaitez-vous partager aujourd'hui ?</h1>
+            <section>
             <div className="ArticleForm">
                 <input
                     className="Title"
@@ -80,15 +81,18 @@ function Article() {
                     }}
                 />
                 <input
+                    className="Parcourir"
                     type="file"
                     onChange={(event) => {
                         setImage(event.target.files)
                     }}
                 />
+
             </div>
-            <div>
-                <button className="Share" onClick={nouvelArticle}>Partager</button>
-            </div>
+            <div className="ClassicButton">
+                    <button className="Share" onClick={nouvelArticle}>Partager</button>
+                </div>
+                </section>
             <section>
                 <h3>Fil d'actualité</h3>                
                 { articles.map((val, key) => {
@@ -118,7 +122,7 @@ function Article() {
     );
 }
 
-export default Article
+export default Article;
 
 //Info tailles, couleurs https://material-ui.com/fr/components/icons/
 /*

@@ -1,4 +1,4 @@
-const multer = require('multer'); // Package multer pour le téléchargement de fichiers
+/*const multer = require('multer'); // Package multer pour le téléchargement de fichiers
 
 const MIME_TYPES = {
     'image/jpg': 'jpg',
@@ -19,4 +19,4 @@ const storage = multer.diskStorage({
     }
 });
 
-module.exports = multer({ storage }).single('image');
+module.exports = multer({ storage }).single('image');*/

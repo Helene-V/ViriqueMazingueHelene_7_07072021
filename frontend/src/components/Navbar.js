@@ -31,6 +31,9 @@ function Navbar() {
                     <a href="/">Accueil</a>      
                 </li>
                 <li className="Navbar__item">
+                    <a href="/profile">Mon Profil</a>
+                </li>
+                <li className="Navbar__item">
                     <a href="/article">Actualités</a>
                 </li>
                 <li className="Navbar__item">
@@ -49,7 +52,7 @@ function Navbar() {
     )
 }
 
-export default Navbar
+export default Navbar;
 
 /*  TEST GESTION DES ONGLETS DU MENU SI CONNECTE AU COMPTE TRUE or FALSE
             <ul className="Navbar__links">

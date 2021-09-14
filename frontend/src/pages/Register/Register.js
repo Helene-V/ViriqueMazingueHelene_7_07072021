@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import './Register.css';
 
+
 function Register () {
 
     const [email, setEmail] = useState('');
@@ -13,10 +14,10 @@ function Register () {
             email: email,
             password: password,
         })
-        .then((response) => {
+        .then(response => {
             console.log(response);
         })
-        .catch((error) => {
+        .catch(error => {
             console.log(error);
             console.log(email);
             console.log(password);
@@ -48,4 +49,20 @@ function Register () {
     )
 }
 
-export default Register
+export default Register;
+
+/*
+    const register = () => {
+        fetch("http://localhost:3000/user/register", {
+            email: email,
+            password: password,
+        })
+        .then(response =>
+            response.json())
+        .catch(error => {
+            console.log(error);
+            console.log(email);
+            console.log(password);
+            console.error(error.response.headers);
+          });
+    };*/

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 
+
 import './Home.css';
 
 function Home () {
@@ -24,7 +25,7 @@ function Home () {
     )
 }
 
-export default Home
+export default Home;
 
 //import background from '../../assets/background.jpg';
 //<img src={background} style={{width: '100%'}}/>

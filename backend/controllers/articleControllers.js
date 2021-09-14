@@ -1,4 +1,4 @@
-const Article = require('../models/Article');
+/*const Article = require('../models/Article');
 
 exports.getAllArticles = async (req, res, next) => {
     try {
@@ -114,4 +114,4 @@ exports.likeOrDislike = (req, res, next) => {
                 throw new Error({ message: 'Problème'});
           }
         })
-  };
+  };*/

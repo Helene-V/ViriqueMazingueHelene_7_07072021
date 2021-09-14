@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken'); // Implémentation de l'authentification par token pour protéger les routes
+/*const jwt = require('jsonwebtoken'); // Implémentation de l'authentification par token pour protéger les routes
 require('dotenv').config();
 
 module.exports = (req, res, next) => {
@@ -17,3 +17,4 @@ module.exports = (req, res, next) => {
     });
   }
 };
+*/

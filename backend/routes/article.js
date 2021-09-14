@@ -1,13 +1,13 @@
 const express = require('express');
 const db = require('../config/db');
-const articleControllers = require('../controllers/articleControllers');
+//const articleControllers = require('../controllers/articleControllers');
 const router = express.Router();
-const auth = require('../middleware/auth');
-const multer = require('../middleware/multer-config');
+//const auth = require('../middleware/auth');
+//const multer = require('../middleware/multer-config');
 
 
 //router.get("/", auth, articleControllers.getAllArticles);
-router.post("/", auth, multer, articleControllers.createNewArticle, (req,res) => {
+router.post("/", (req,res) => {
     const email = req.body.email
     const title = req.body.title;
     const description = req.body.description;
@@ -45,6 +45,7 @@ router.post('/like', (req,res) => {
         })
     });
 })
+
 
 //router.get("/:id", auth, articleControllers.getArticleById);
 //router.put("/:id", auth, multer, articleControllers.modifyArticle);
