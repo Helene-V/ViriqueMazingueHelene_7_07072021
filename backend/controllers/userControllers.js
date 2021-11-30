@@ -1,4 +1,26 @@
-/*const bcrypt = require('bcrypt');
+/*exports.register = (req, res, next) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    db.query(
+        'INSERT INTO users (email, password) VALUES (?,?)',
+        [email, password],
+        (err, result) => {
+            if (err) {
+                console.log(err)
+            } else {
+                res.send("Enregistrement des données") //res.send(results);
+            }
+        }
+    );
+};
+
+*/
+/* 
+
+******REPRISE DU P6 EN EXEMPLE*****
+
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const db = require('../config/db');
 require('dotenv').config();

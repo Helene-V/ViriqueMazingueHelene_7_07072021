@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from "axios";
 
 import './Register.css';
 
@@ -8,21 +8,20 @@ function Register () {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    //const [username, setUsername] = useState(''); création de l'username pour afficher le nom de la personne qui publie
+
 
     const register = () => {
-        axios.post("http://localhost:3000/user/register", {
-            email: email,
+        axios.post("/register", { //axios.post("http://localhost:3000/register", {
+            email: email, // ça c'est mon req.body.email qui est passé au back via axios
             password: password,
         })
-        .then(response => {
-            console.log(response);
+        .then(() => {
+            console.log("ça marche !");
         })
-        .catch(error => {
-            console.log(error);
-            console.log(email);
-            console.log(password);
-            console.error(error.response.headers);
-          });
+        .catch(err => { 
+            console.log(err); 
+          })
     };
 
     return (
@@ -50,6 +49,23 @@ function Register () {
 }
 
 export default Register;
+/*
+const register = () => {
+    axios.post("http://localhost:3000/register", { //axios.post("http://localhost:3000/user/register", {
+        email: email, // ça c'est mon req.body.email qui est passé au back via axios
+        password: password,
+    })
+    .then(response => {
+        console.log(response);
+    })
+    .catch(error => {
+        console.log(error);
+        console.log(email);
+        console.log(password);
+        console.error(error.response.headers);
+      });
+};
+*/
 
 /*
     const register = () => {

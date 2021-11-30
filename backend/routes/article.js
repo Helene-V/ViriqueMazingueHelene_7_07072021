@@ -40,7 +40,7 @@ router.post('/like', (req,res) => {
         if (err) {
             console.log(err);
         }
-        db.query("UPDATE Articles SET likes = likes + 1 WHERE postId = ?", postId, (err2, result2) => {
+        db.query("UPDATE Articles SET likes = likes + 1 WHERE id = ?", postId, (err2, result2) => {
             res.send(results);
         })
     });

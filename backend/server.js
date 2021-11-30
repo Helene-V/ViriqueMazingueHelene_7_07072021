@@ -1,6 +1,7 @@
 const http = require('http'); // Importation du package de requêtes http
 const app = require('./app'); // Importation de l'application
 
+
 const normalizePort = val => { // Renvoie un port valide
   const port = parseInt(val, 10);
 
@@ -12,8 +13,11 @@ const normalizePort = val => { // Renvoie un port valide
   }
   return false;
 };
+
+
 const port = normalizePort(process.env.PORT || '3000'); // Indication de l'environnement/du port utilisé
 app.set('port', port);
+
 
 const errorHandler = error => { // Recherche les différentes erreur et gestion de ces erreurs
   if (error.syscall !== 'listen') {
@@ -35,7 +39,9 @@ const errorHandler = error => { // Recherche les différentes erreur et gestion 
   }
 };
 
+
 const server = http.createServer(app);
+
 
 server.on('error', errorHandler);
 server.on('listening', () => { // Ecouteur d'évènements
@@ -43,5 +49,6 @@ server.on('listening', () => { // Ecouteur d'évènements
   const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;
   console.log('Listening on ' + bind + ', GREAT !');
 });
+
 
 server.listen(port);

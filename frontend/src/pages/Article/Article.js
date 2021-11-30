@@ -7,11 +7,15 @@ import './Article.css';
 
 function Article() {
 
+    const [articles, setArticles] = useState([]);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [image, setImage] = useState([]);
+    const [image, setImage] = useState([]);   
+    const [likes, setLikes] = useState([]);
 
     let history = useHistory();
+
+// NOUVEL ARTICLE
 
     const nouvelArticle = () => {
 
@@ -34,18 +38,23 @@ function Article() {
         });
     };
 
-    
-    const [articles, setArticles] = useState([]);
-/* RECUPERATION DES POSTS pour affichage
+
+// AFFICHAGE/RECUPERATION DES ARTICLES DEJA ECRITS ET DES LIKES
+/*
     useEffect(() => {
         axios.get("http://localhost:3000/article")
         .then((response) => {
             setArticles(response.data);
+            let numberOfLikes = [];
             response.data.map((val) => {
-                setLikes([...likes, val.likes]);
+                numberOfLikes.push(val.likes)
             });
+            setLikes(numberOfLikes);
         });
-    }, []);*/
+    }, []);
+*/
+
+// GESTION DES LIKES
 
     const likeThePost = (id) => {
         axios.post("http://localhost:3000/article/like", {
@@ -57,7 +66,6 @@ function Article() {
         });
     };
 
-    const [likes, setLikes] = useState([]);
 
     return (
         <div className="Article">
