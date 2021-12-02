@@ -1,13 +1,11 @@
 const express = require('express');
-const db = require('../config/db');
+const db = require('../config/db.config');
 const router = express.Router();
-//const auth = require('../middleware/auth');
-//const userControllers = require('../controllers/userControllers');
-
-const { signupValidation, loginValidation } = require('../validation.js');
+const { signupValidation, loginValidation } = require('../middleware/validation.js');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
 
 router.post('/register', signupValidation, (req, res, next) => {
   db.query(
@@ -126,52 +124,7 @@ router.post('/get-user', signupValidation, (req, res, next) => {
 
 
 module.exports = router;
-/*
-router.post('/login', (req, res)=> {
-    const email = req.body.email;
-    const password = req.body.password;
 
-    db.query(
-        "SELECT * FROM users WHERE email = ?",
-        email,
-        (err, results) => {
-            if (err) {
-                console.log(err);
-            }
-            if (results.length > 0) {
-                if (password == results[0].password) {
-                    res.json({
-                        loggedIn: true,
-                        email: email
-                    });
-            } else {
-                    res.json({
-                        loggedIn: false,
-                        message: "Wrong email/password combination !"
-                    });
-                }
-            } else { 
-                    res.json({
-                        loggedIn: false,
-                        message: "User doesn't exist"
-                    });
-            }
-        }
-    );
-});
-
-module.exports = router;
-*/
-/*
-router.get("/user/:email"),(req,res) => {
-    const userName = req.params.email
-    db.query("SELECT * FROM Articles", (err,results) => {
-        if (err) {
-            console.log(err)
-        }
-        res.send(results)
-    })
-}*/
 
 //router.delete('/:id', auth, userControllers.deleteUser)
 

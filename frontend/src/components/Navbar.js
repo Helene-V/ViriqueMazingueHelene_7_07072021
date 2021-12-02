@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
+//import React, { useState, useEffect } from 'react';
 import logo from '../assets/logo-black-400x66.png';
 import './Navbar.css';
 
 function Navbar() {
 
-    const [loggedIn, setLoggedIn] = useState(true);
+    //const [loggedIn, setLoggedIn] = useState(true);
 
-    useEffect(() => {
+    /*useEffect(() => {
         setLoggedIn(localStorage.getItem('loggedIn'));
         console.log(loggedIn);
-    }, [localStorage.getItem('loggedIn')]);
+    }, [localStorage.getItem('loggedIn')]);*/
 
 
     const [showMenu, setShowMenu] = useState(false)

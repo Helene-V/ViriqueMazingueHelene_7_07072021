@@ -1,3 +1,5 @@
+/*
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
@@ -53,7 +55,7 @@ function Article() {
         });
     }, []);
 */
-
+/*
 // GESTION DES LIKES
 
     const likeThePost = (id) => {
@@ -139,3 +141,4 @@ style={{ fontSize: 40 }}
 color="primary"
 />
 */
+

@@ -1,7 +1,7 @@
 const createError = require('http-errors');
 const express = require('express'); // Ajout de l'application Express
 const path = require('path');
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet'); // Package Helmet pour la sécurité des en-têtes
 require('dotenv').config();  // Mise en place de dotenv pour cacher les identifiants d'accès à la db
@@ -12,15 +12,22 @@ const app = express();
 //const mysql = require('mysql');
 //const db = require('../backend/config/db');
 
+const corsOptions = {
+  origin: "http://localhost:3031"
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+//app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+//app.use(bodyParser.urlencoded({
+//    extended: true
+//}));
 
-app.use(cors());
+//app.use(cors());
 
 app.use(helmet());
 
@@ -56,6 +63,12 @@ app.use((err, req, res, next) => {
     });
 });
 
+
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to Groupomania" });
+});
+
+require("../backend/routes/user");
 
 module.exports = app;
 

@@ -73,18 +73,25 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## Structure de Groupomania
 App (structure de base)
 - user
-
-LoginForm
-- mail , mot de passe (2FA à venir)
-- < onConnect(user)
+- admin
+- modérateur
 
 RegisterForm
-- nom, prénom, photo, email, date de naissance, mot de passe
+- name
+- email 
+- password
+- < onConnect(user)
+
+LoginForm
+- email 
+- password (2FA à venir)
 - < onConnect(user)
 
 Pages
-- Connexion/Register account
-- Home page, articles (comments, likes/dislikes, search, ... )
+- Login
+- Register
+- Home
+- articles (comments, likes/dislikes, search, ... )
 
 Articles
 - > articles
@@ -102,6 +109,6 @@ ArticleEditForm
 - like/dislike
 - < onSubmit(article)
 
-AccountEdit
+Profile
 - modifier photo de profil
 - supprimer le compte

@@ -1,4 +1,5 @@
 const http = require('http'); // Importation du package de requêtes http
+
 const app = require('./app'); // Importation de l'application
 
 
@@ -14,8 +15,7 @@ const normalizePort = val => { // Renvoie un port valide
   return false;
 };
 
-
-const port = normalizePort(process.env.PORT || '3000'); // Indication de l'environnement/du port utilisé
+const port = normalizePort(process.env.PORT); // Indication de l'environnement/du port utilisé
 app.set('port', port);
 
 
