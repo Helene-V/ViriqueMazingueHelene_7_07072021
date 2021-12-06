@@ -1,48 +1,15 @@
-const mysql = require('mysql');
-//const app = require('../app');
-//require('dotenv').config();
+module.exports = { // Paramètres de connexion MySQL
+  HOST: "localhost",
+  USER: "root",
+  PASSWORD: "root",
+  DB: "auth",
+  dialect: "mysql",
+  pool: { // CONFIGURATION DU POOL DE CONNEXION Sequelize
+    max: 5, // Nb max de connexion dans le pool
+    min: 0, // Nb min de connexion dans le pool
+    acquire: 30000, // Temps max en millisecondes, où le pool essaiera d'avoir la connexion avant de retourner une erreur
+    idle: 10000 // Temps max en millisecondes, pendant lequel une connexion peut être inactive
+  }
+};
 
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'groupomania',
-  password: 'root'
-});
-
-db.connect(function(err) {
-  if (err) throw err;
-  console.log('Database is connected successfully !');
-});
-
-module.exports = db;
-
-/*
-const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD
-});*/
-
-/*
-//AFFICHAGE DES ELEMENTS DANS LA DB [] :
-let sql = "SELECT * FROM articles;";
-
-pool.execute(sql, function(err, result) {
-  if (err) throw err;
-  console.log(result);
-  //ou encore console.log(res.title)
-});
-*/
-
-/*exports.connect = (done) => {
-  connection.connect((err) =>{
-      if(err){
-          console.log('db connection error');
-      }
-      else{
-          done()
-          console.log('db connection');
-      }
- })
-}*/
+//https://sequelize.org/master/class/lib/sequelize.js~Sequelize.html#instance-constructor-constructor

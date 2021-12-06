@@ -20,7 +20,7 @@ const AddUser = () => {
   };
 
   const saveUser = () => {
-    var data = {
+    let data = {
       name: user.name,
       email: user.email,
       password: user.password

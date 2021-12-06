@@ -1,54 +1,73 @@
-const http = require('http'); // Importation du package de requêtes http
+const express = require("express");
+const cors = require("cors");
+const app = express();
 
-const app = require('./app'); // Importation de l'application
 
+const path = require('path');
+//const createError = require('http-errors');
+const helmet = require('helmet');
 
-const normalizePort = val => { // Renvoie un port valide
-  const port = parseInt(val, 10);
+//require('dotenv').config({path:'./config/.end'});
 
-  if (isNaN(port)) {
-    return val;
-  }
-  if (port >= 0) {
-    return port;
-  }
-  return false;
+const corsOptions = {
+  origin: "http://localhost:3031"
 };
 
-const port = normalizePort(process.env.PORT); // Indication de l'environnement/du port utilisé
-app.set('port', port);
+app.use(cors(corsOptions));
 
+app.use(express.json());
 
-const errorHandler = error => { // Recherche les différentes erreur et gestion de ces erreurs
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
-  const address = server.address();
-  const bind = typeof address === 'string' ? 'pipe ' + address : 'port: ' + port;
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges.');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use.');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-};
+// Documentation https://expressjs.com/fr/api.html#express.urlencoded
+app.use(express.urlencoded({ extended: true }));
 
+//app.use(helmet());
 
-const server = http.createServer(app);
+// database
+const db = require("../backend/models");
+const Role = db.role;
 
+db.sequelize.sync();
+/*Méthode pour supprimer la table après de nombreux essais et repartir de zéro puis resyncroniser la db : */
+// db.sequelize.sync({force: true}).then(() => {
+//   console.log('Drop and Resync Database with { force: true }');
+//   initial();
+// });
 
-server.on('error', errorHandler);
-server.on('listening', () => { // Ecouteur d'évènements
-  const address = server.address();
-  const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;
-  console.log('Listening on ' + bind + ', GREAT !');
+// CORS - Permet à l'application d'accéder à l'API
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+  next();
 });
 
 
-server.listen(port);
+// Définition de la route GET
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to Groupomania" });
+});
+
+// routes
+require('../backend/routes/auth.routes')(app);
+require('../backend/routes/user.routes')(app);
+
+//app.use('/images', express.static(path.join(__dirname, 'images')));
+
+// Définition des rôles
+function initial() {
+  Role.create({
+    id: 1,
+    name: "user"
+  });
+
+  Role.create({
+    id: 2,
+    name: "admin"
+  });
+}
+
+// Configuration du port et écoute de celui-ci pour les requêtes entrantes
+const PORT = process.env.PORT || 3030;;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
