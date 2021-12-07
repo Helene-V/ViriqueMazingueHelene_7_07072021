@@ -14,7 +14,7 @@ function Login () {
     let history = useHistory()
 
     const login = () => {
-        axios.post("http://localhost:3000/login", {
+        axios.post("http://localhost:3030/login", {
             email: email,
             password: password,
         })

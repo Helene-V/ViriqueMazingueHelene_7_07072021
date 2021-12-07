@@ -50,6 +50,7 @@ app.get("/", (req, res) => {
 // routes
 require('../backend/routes/auth.routes')(app);
 require('../backend/routes/user.routes')(app);
+require('../backend/routes/article.routes')(app);
 
 //app.use('/images', express.static(path.join(__dirname, 'images')));
 
