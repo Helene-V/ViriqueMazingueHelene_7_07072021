@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 
 import './Login.css'
 
@@ -11,7 +11,7 @@ function Login () {
 
     const [errorMessage, setErrorMessage] = useState('');
 
-    let history = useHistory()
+    //let history = useHistory()
 
     const login = () => {
         axios.post("http://localhost:3030/login", {
@@ -23,7 +23,7 @@ function Login () {
             if (response.data.loggedIn) {
                 localStorage.setItem("loggedIn", true)
                 localStorage.setItem("email", response.data.email)
-                history.push('/'); // si connecté, redirection vers la page
+      //          history.push('/'); // si connecté, redirection vers la page
             } else {
                 setErrorMessage(response.data.message);
             }
@@ -62,3 +62,4 @@ function Login () {
 }
 
 export default Login;
+

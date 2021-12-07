@@ -1,5 +1,31 @@
-import http from '../http-common';
+import axios from "axios";
+import authHeader from "./auth.headers";
+const API_URL = "http://localhost:3030/api/content/";
 
+const getPublicContent = () => {
+  return axios.get(API_URL + "all");
+};
+
+const getUserBoard = () => {
+  return axios.get(API_URL + "user", { headers: authHeader() });
+};
+
+
+const getAdminBoard = () => {
+  return axios.get(API_URL + "admin", { headers: authHeader() });
+};
+
+const UserService = {
+  getPublicContent,
+  getUserBoard,
+  getAdminBoard,
+};
+
+export default UserService;
+
+/*
+TEST
+import http from '../http-common' = axios;
 
 //const getAll = () => {
 //  return http.get("/users");
@@ -38,14 +64,4 @@ const UserDataService = {
 };
 
 export default UserDataService;
-
-/*
-const UserDataService = {
-  getAll,
-  get,
-  create,
-  update,
-  remove,
-  removeAll,
-  findByName
-};*/
+*/

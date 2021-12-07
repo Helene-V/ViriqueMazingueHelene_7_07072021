@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 //import React, { useState, useEffect } from 'react';
-import logo from '../assets/logo-black-400x66.png';
+import logo from '../../assets/logo-black-400x66.png';
 import './Navbar.css';
 
 function Navbar() {

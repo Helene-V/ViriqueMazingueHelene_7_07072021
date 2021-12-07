@@ -1,29 +1,36 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 
-import Navbar from './components/Navbar';
-import Home from './pages/Home/Home';
-import Login from './pages/Login/Login';
-import AddUser from './pages/Register/AddUser';
-import Article from './pages/Article/Article';
-import Profile from './pages/Profile/Profile';
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+//import Article from './components/Article/Article';
+//import Profile from './components/Profile/Profile';
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 function App() {
   return (
-    <>
+    <div>
       <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={AddUser} />
-        <Route exact path="/article" component={Article} />
-        <Route path="/profile/:id" component={Profile} />
-      </Switch> 
-    </>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+      </Routes> 
+    </div>
   );
 }
 
 
 export default App;
+
+/*      <Route path="/user" component={<FormDataBoardUser />} />
+        <Route path="/admin" component={<BoardAdmin />} />
+        <Route path='/profile' element={<Profile />} />
+        <Route path='/article' element={<Article />} />
+*/
+
+//https://stackoverflow.com/questions/58924617/componentwillreceiveprops-has-been-renamed
