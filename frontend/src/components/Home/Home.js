@@ -13,13 +13,10 @@ function Home () {
 
     return (
         <main>
-            <div>
-            <h1 className="title">Work hard anywhere...</h1>
-            </div>
             <div className="Home">
-                <h2>WELCOME <span>to Groupomania</span></h2>
-                <a href="/login" className="Home-link">Première connexion ?</a>
-                <a href="/register" className="Home-link">Déjà inscrit ?</a>                 
+                <h1>WELCOME <span>to Groupomania</span></h1>
+                <a href="/register" className="Home-link">Première inscription</a>
+                <a href="/login" className="Home-link">Connexion à votre compte</a>                 
             </div>
         </main>
     )

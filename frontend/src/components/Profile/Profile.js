@@ -1,23 +1,27 @@
-/*import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from "react";
+import AuthService from "../../services/auth.service";
 
-function Profile() {
+import './Profile.css';
 
-    const [yourArticles, setYourArticles] = useState([])
+const Profile = () => {
+  const currentUser = AuthService.getCurrentUser();
 
-    useEffect(() => {
-        axios.get("http://localhost:3000/article/user", {email: localStorage.getItem("email")})
-        .then((response) => {
-            setYourArticles(response.data);
-        });
-    });
-
-    return (
-        <div className="Profile">
-            <h1>{localStorage.getItem("email")}</h1>
-        </div>
-    )
-}
+  return (
+    <div className="container">
+      <header>
+        <h1>
+          <strong>Espace personnel de {currentUser.username}</strong>
+        </h1>
+      </header>
+      <p>
+        <strong>Votre numéro identifiant :</strong> {currentUser.id}
+      </p>
+      <p>
+        <strong>Votre adresse mail :</strong> {currentUser.email}
+      </p>
+      <strong>Votre rôle sur la plateforme :</strong> {currentUser.roles}
+    </div>
+  );
+};
 
 export default Profile;
-*/

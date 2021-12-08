@@ -16,7 +16,7 @@
     margin-left: 20px;
 }
 
-.Navbar a {
+.Navbar li a {
    font-size: 20px;
    margin: 20px;
    color: black;
@@ -24,7 +24,7 @@
 }
 
 
-.Navbar a:hover {
+.Navbar li a:hover {
     cursor: pointer;
     border-bottom: 3px dotted black;
     padding-bottom: 5px;

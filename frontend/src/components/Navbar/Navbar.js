@@ -1,81 +1,104 @@
-import React, { useState } from 'react';
-//import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
+import AuthService from "../../services/auth.service";
+//import AuthVerify from "../../check/AuthVerify";
+import EventBus from "../../check/EventBus";
 import logo from '../../assets/logo-black-400x66.png';
 import './Navbar.css';
 
-function Navbar() {
+const Navbar = () => {
+  const [showAdminBoard, setShowAdminBoard] = useState(false);
+  const [currentUser, setCurrentUser] = useState(undefined);
 
-    //const [loggedIn, setLoggedIn] = useState(true);
+  useEffect(() => {
+    const user = AuthService.getCurrentUser();
 
-    /*useEffect(() => {
-        setLoggedIn(localStorage.getItem('loggedIn'));
-        console.log(loggedIn);
-    }, [localStorage.getItem('loggedIn')]);*/
-
-
-    const [showMenu, setShowMenu] = useState(false)
-
-    const handleShowMenu = () => {
-        setShowMenu(!showMenu)
+    if (user) {
+      setCurrentUser(user);
+      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
     }
 
-    console.log(showMenu)
+    EventBus.on("logout", () => {
+      logOut();
+    });
 
-    return (
-        <nav className={`Navbar ${showMenu ? "Show-nav" : "Hide-nav"}`}>
-            <div className="Logo">
-                <img src={logo} alt="Logo" width="200px" height="auto" />
-            </div>
-            <ul className="Navbar__links">
-                <li className="Navbar__item">
-                    <a href="/">Accueil</a>      
-                </li>
-                <li className="Navbar__item">
-                    <a href="/profile">Mon Profil</a>
-                </li>
-                <li className="Navbar__item">
-                    <a href="/article">Actualités</a>
-                </li>
-                <li className="Navbar__item">
-                    <a href="/login">Connexion</a>
-                </li>
-                <li className="Navbar__item">
-                    <a href="/register">S'inscrire</a>
-                </li>
-            </ul>
-            <button
-                className="Navbar__burger"
-                onClick={handleShowMenu}>
-                <span className="Burger-bar"></span>
-            </button>
-        </nav>
-    )
-}
+    return () => {
+      EventBus.remove("logout");
+    };
+  }, []);
+
+  const logOut = () => {
+    AuthService.logout();
+    setShowAdminBoard(false);
+    setCurrentUser(undefined);
+  };
+
+  return (
+    <div>
+      <nav className="Navbar">        
+        <div className="Logo">
+            <img src={logo} alt="Logo" width="200px" height="auto" />
+        </div>
+        <div className="Navbar__links">
+          <li className="Navbar__item">
+            <Link to="home">
+              Accueil
+            </Link>
+          </li>
+
+          {showAdminBoard && (
+            <li className="Navbar__item">
+              <Link to="admin">
+                Admin Board
+              </Link>
+            </li>
+          )}
+
+          {currentUser && (
+            <li className="Navbar__item">
+              <Link to="profile">
+                Mon profil
+              </Link>
+            </li>
+          )}
+        </div>
+
+        {currentUser ? (
+          <div className="Navbar__links">
+            <li>
+              <Link to="profile">Bonjour {" "}
+                {currentUser.username} !
+              </Link>
+            </li>
+            <li className="Navbar__item">
+              <a href="/login"onClick={logOut}>
+                Déconnexion
+              </a>
+            </li>
+          </div>
+        ) : (
+          <div className="Navbar__links">
+            <li className="Navbar__item">
+              <Link to="login">
+                Se connecter
+              </Link>
+            </li>
+
+            <li className="Navbar__item">
+              <Link to="register">
+                S'inscrire
+              </Link>
+            </li>
+          </div>
+        )}
+      </nav>
+
+    { /*<AuthVerify logOut={logOut}/>*/ }
+
+      
+    </div>
+  );
+};
 
 export default Navbar;
-
-/*  TEST GESTION DES ONGLETS DU MENU SI CONNECTE AU COMPTE TRUE or FALSE
-Faire des recherches sur useHistory
-            <ul className="Navbar__links">
-                <li className="Navbar__item">
-                    <a href="/">Accueil</a>
-                </li>
-                {loggedIn ? (
-                    <>
-                        <a href="/article">Actualités</a>
-                    </>
-                ) : (
-                    <>                
-                    <li className="Navbar__item">
-                        <a href="/contact">Contact</a>
-                    </li>
-                    <li className="Navbar__item">
-                        <a href="/login">Connexion</a>
-                    </li>
-                    <li className="Navbar__item">
-                        <a href="/register">S'inscrire</a>
-                    </li>
-                    </>
-                )}
-            </ul>
-*/

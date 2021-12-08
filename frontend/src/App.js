@@ -1,12 +1,11 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
-//import Article from './components/Article/Article';
-//import Profile from './components/Profile/Profile';
+import Profile from './components/Profile/Profile';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -16,9 +15,11 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Navigate to ="/Home" />} />
+        <Route path='/home/*' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/profile' element={<Profile />} />
       </Routes> 
     </div>
   );
@@ -27,9 +28,10 @@ function App() {
 
 export default App;
 
+//import Article from './components/Article/Article';
+
 /*      <Route path="/user" component={<FormDataBoardUser />} />
-        <Route path="/admin" component={<BoardAdmin />} />
-        <Route path='/profile' element={<Profile />} />
+        <Route path="/admin" component={<BoardAdmin />} />       
         <Route path='/article' element={<Article />} />
 */
 
