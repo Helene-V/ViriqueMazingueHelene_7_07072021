@@ -37,14 +37,6 @@
     list-style: none;
 }
 
-.Navbar__burger {
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    border: none;
-    color: inherit;
-    display: none;
-}
 
 @media screen and (max-width: 767px){
     .Navbar__links {
@@ -71,60 +63,5 @@
         display: block;
         padding: 1.5rem;
         font-size: 10vw;
-    }
-
-    .Navbar__burger {
-        display: block;
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-    }
-
-    .Navbar__burger:hover {
-        cursor: pointer;
-    }
-
-    .Burger-bar,
-    .Burger-bar::before,
-    .Burger-bar::after {
-        display: block;
-        width: 40px;
-        height: 3px;
-        position: relative;
-        border-radius: 3px;
-        background-color: black;
-        transition: all .5s ease-in-out;
-    }
-
-    .Burger-bar::before,
-    .Burger-bar::after {
-        content:"";
-        position: absolute;
-        left: 0;
-    }
-
-    .Burger-bar::before {
-        transform: translateY(-12px);
-    }
-
-    .Burger-bar::after {
-        transform: translateY(12px);
-    }
-
-    .Show-nav .Burger-bar {
-        width: 0;
-        background: transparent;
-    }
-
-    .Show-nav .Burger-bar::before {
-        transform: rotate(45deg);
-    }
-
-    .Show-nav .Burger-bar::after {
-        transform: rotate(-45deg);
-    }
-
-    .Home {
-        visibility: hidden;
     }
 }

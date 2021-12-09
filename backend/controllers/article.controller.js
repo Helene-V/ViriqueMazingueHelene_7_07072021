@@ -35,7 +35,7 @@ exports.create = (req, res) => {
 // RECUPERATION DE TOUS LES ARTICLES/POSTS
 exports.findAll = (req, res) => {
   const title = req.query.title;
-  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+  const condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
 
   Article.findAll({ where: condition })
     .then(data => {

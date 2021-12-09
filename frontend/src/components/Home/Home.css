@@ -1,71 +1,32 @@
-/*main {
+.Card {
+    background-color: cadetblue;
+    border-radius: 20px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    background-image: url(../../assets/background-home.jpg);
-    background-position: inherit;
-    background-size: auto;
-    background-repeat: no-repeat;
-    height: 830px;
+    margin: 20px;
+    padding: 20px;
+    width: 30%;
+    height: 200px;
 }
 
-h2 {
-    font-family: 'Anton', sans-serif;
-    font-size: 4rem;
-    color: #fff;
-    line-height: 1;
-    text-align: center;
-    margin: 0.3em;
-}
-
-span {
-    font-size: 3rem;
-}
-
-.Home {
-    display: flex;
-    align-items: inherit;
-    background-color: black;
-    opacity: 0.75;
-    width: 35em;
-    height: 20em;
-    border-radius: 20px 20px;
-    padding: 2em;
-}
-
-h1 {
+.Container {
     display: flex;
     justify-content: center;
-    color: black;
-    font-size: 5.5rem;
 }
 
 .Home-link {
-    width: 12em;
-    height: 4em;
+    color: black;
     text-decoration: none;
-    color: #fff;
-    padding:0.5em;
-    font-size: 1.3rem;
-    text-align: center;
 }
 
-.Home-link:hover {
-    border-style: dotted;
-    border-color: #fff;
-    border-radius: 10px;
-    transform: scale(1.1);
-    font-weight: 700;
-    font-size: 1.2rem;
+a:hover {
+    cursor: pointer;
 }
 
-.title {
-    margin: 1em;
+.Icon {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
 }
 
-@media only screen and (max-width: 767px) {
-    main {
-       background-image: url(../../assets/background-home.jpg);
-    }
-}
-*/

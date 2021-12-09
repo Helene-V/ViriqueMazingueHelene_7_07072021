@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 import AuthService from "../../services/auth.service";
 //import AuthVerify from "../../check/AuthVerify";
 import EventBus from "../../check/EventBus";
-import logo from '../../assets/logo-black-400x66.png';
+import logo from '../../assets/logo.png';
 import './Navbar.css';
 
 const Navbar = () => {
-  const [showAdminBoard, setShowAdminBoard] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
@@ -16,7 +15,6 @@ const Navbar = () => {
 
     if (user) {
       setCurrentUser(user);
-      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
     }
 
     EventBus.on("logout", () => {
@@ -30,7 +28,6 @@ const Navbar = () => {
 
   const logOut = () => {
     AuthService.logout();
-    setShowAdminBoard(false);
     setCurrentUser(undefined);
   };
 
@@ -41,24 +38,14 @@ const Navbar = () => {
             <img src={logo} alt="Logo" width="200px" height="auto" />
         </div>
         <div className="Navbar__links">
-          <li className="Navbar__item">
-            <Link to="home">
-              Accueil
-            </Link>
-          </li>
-
-          {showAdminBoard && (
-            <li className="Navbar__item">
-              <Link to="admin">
-                Admin Board
-              </Link>
-            </li>
-          )}
 
           {currentUser && (
             <li className="Navbar__item">
-              <Link to="profile">
-                Mon profil
+              <Link to="articles">
+                Lire les posts
+              </Link>
+              <Link to="add">
+                Ecrire un post
               </Link>
             </li>
           )}
