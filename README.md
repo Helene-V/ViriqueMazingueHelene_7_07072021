@@ -14,7 +14,7 @@ Ce projet utilise pour la partie client :
 Ce projet utilise pour la partie serveur :
 - Express
 - Node JS
-- Sequilize
+- Sequelize
 - MySQL
 
 Structure de Groupomania :
