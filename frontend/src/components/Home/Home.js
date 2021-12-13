@@ -1,4 +1,27 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+//import bg_social_media from '../../assets/bg_social_media.png';
+import './Home.css';
+
+function Home () {
+
+
+
+    return (
+        <main>                                     
+            <div className="Background">
+                <div className='Presentation'>
+                    <h1>Welcome to Groupomania</h1>
+                </div>
+            </div>
+        </main> 
+    )
+}
+
+export default Home;
+
+
+//                <img src={bg_social_media} alt="background" width="auto" height="auto" />
+/*import React, { useEffect } from 'react';
 
 
 import './Home.css';

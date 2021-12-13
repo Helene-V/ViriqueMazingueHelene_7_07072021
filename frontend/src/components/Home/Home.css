@@ -1,32 +1,12 @@
-.Card {
-    background-color: cadetblue;
-    border-radius: 20px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 20px;
-    padding: 20px;
-    width: 30%;
-    height: 200px;
+.Background {
+    background-image: url("../../assets/bg_social_media3.png");
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: initial;
+    position: relative;
 }
 
-.Container {
-    display: flex;
-    justify-content: center;
+.Presentation {
+    margin-top: 20px;
 }
-
-.Home-link {
-    color: black;
-    text-decoration: none;
-}
-
-a:hover {
-    cursor: pointer;
-}
-
-.Icon {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-}
-

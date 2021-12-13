@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ArticleService from "../../services/article.service";
+import ArticleService from '../../services/article.service';
 
 const Article = (props) => {
   const navigate = useNavigate();
   navigate('/articles');
+      //const { id } = props.match.params
+      
   
   const initialArticleState = {
     id: null,
@@ -27,7 +29,6 @@ const Article = (props) => {
   };
 
   useEffect(() => {
-    
     getArticle(props.match.params.id);
   }, [props.match.params.id]);
 
@@ -70,7 +71,8 @@ const Article = (props) => {
     ArticleService.remove(currentArticle.id)
       .then(response => {
         console.log(response.data);
-        props.history.push("/articles");
+        navigate('/articles')
+        //props.history.push("/articles");
       })
       .catch(e => {
         console.log(e);

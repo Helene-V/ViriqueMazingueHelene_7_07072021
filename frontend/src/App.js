@@ -19,6 +19,41 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Navigate to ="/Home" />} />
+        <Route path='home' element={<Home />} />
+        <Route path='login' element={<Login />} />
+        <Route path='register' element={<Register />} />
+        <Route path='profile' element={<Profile />} />
+        <Route path='articles' element={<ArticlesList />} >
+          <Route path=':id/edit' element={<Article />} />
+        </Route>
+        <Route path='add' element={<AddArticle />} />
+      </Routes> 
+    </div>
+  );
+}
+
+
+export default App;
+
+
+//https://stackoverflow.com/questions/58924617/componentwillreceiveprops-has-been-renamed
+//https://reacttraining.com/blog/react-router-v6-pre/
+
+
+/*      
+        <Route path='/articles' element={<Navigate to ="/ArticlesList" />} />
+        <Route path='/articles' element={<ArticlesList />} />
+        <Route path="/user" element={<FormDataBoardUser />} />    
+        
+*/
+
+/*
+function App() {
+  return (
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Navigate to ="/Home" />} />
         <Route path='/home/*' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
@@ -29,18 +64,5 @@ function App() {
       </Routes> 
     </div>
   );
-}
+} */
 
-
-export default App;
-
-//import Article from './components/Article/Article';
-
-/*      
-        <Route path='/articles' element={<Navigate to ="/ArticlesList" />} />
-        <Route path='/articles' element={<ArticlesList />} />
-        <Route path="/user" element={<FormDataBoardUser />} />    
-        
-*/
-
-//https://stackoverflow.com/questions/58924617/componentwillreceiveprops-has-been-renamed

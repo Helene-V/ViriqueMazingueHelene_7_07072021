@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect  } from "react";
 import ArticleService from "../../services/article.service";
 import { Link } from "react-router-dom";
 
@@ -63,8 +63,8 @@ const ArticlesList = () => {
   };
 
   return (
-    <div className="list row">
-      <div className="col-md-8">
+    <div>
+      <div className="col-md-6">
         <div className="input-group mb-3">
           <input
             type="text"
@@ -97,7 +97,8 @@ const ArticlesList = () => {
                 onClick={() => setActiveArticle(article, index)}
                 key={index}
               >
-                {article.title}
+                {article.title + ' : '} 
+                {article.description}
               </li>
             ))}
         </ul>
@@ -130,11 +131,12 @@ const ArticlesList = () => {
                 <strong>Status:</strong>
               </label>{" "}
               {currentArticle.published ? "Published" : "Pending"}
-            </div>
+            </div>    
 
             <Link
-              to={"/articles/" + currentArticle.id}
               className="badge badge-warning"
+              to={`/articles/${currentArticle.id}`}
+              key={currentArticle.id}
             >
               Edit
             </Link>
